@@ -1,0 +1,23 @@
+{
+  "name": "alanngai-js-utils",
+  "version": "2.0.0",
+  "description": "js 工具类",
+  "main": "dist/alanngai-js-utils.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@AlanNgaiJX.github.com:AlanNgaiJX/alanngai.git"
+  },
+  "author": "AlanNgai",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.6.1"
+  }
+}
