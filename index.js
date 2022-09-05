@@ -2,10 +2,10 @@
 
 /**
  * 设置 cookie
- * @param{String} cname 键
- * @param{String} cvalue 值
- * @param{String} cvalue 值
- * @return{undefined} 无返回
+ * @param {string} cname - 键
+ * @param {string} cvalue - 值
+ * @param {string} cvalue - 值
+ * @return {undefined} - 无返回
  */
 function setCookie(cname, cvalue, exdays) {
   let d = new Date();
@@ -16,8 +16,8 @@ function setCookie(cname, cvalue, exdays) {
 
 /**
  * 根据键名，获取cookie值
- * @param{String} cname 键
- * @return{String} 如有则返回值；如无则返回空字符串
+ * @param {string} cname - 键
+ * @return {string} - 如有则返回值；如无则返回空字符串
  */
 function getCookie(cname) {
   let name = cname + "=";
@@ -31,8 +31,8 @@ function getCookie(cname) {
 
 /**
  * 根据键名，删除cookie值
- * @param{String} cname 键
- * @return{undefined} 无返回
+ * @param {string} cname - 键
+ * @return {undefined} - 无返回
  */
 function deleteCookie(cname) {
   setCookie(cname, "", -1);
@@ -40,7 +40,7 @@ function deleteCookie(cname) {
 
 /**
  * 根据 userAgent 判断是否为移动端
- * @return{Boolean} 移动端返回 true，非移动端返回 false
+ * @return {boolean} - 移动端返回 true，非移动端返回 false
  */
 function isMobile() {
   if (
@@ -56,7 +56,7 @@ function isMobile() {
 
 /**
  * 根据 userAgent 判断是否为微信浏览器 或 是否企业微信
- * @return{String | Boolean} false:不是微信浏览器 | is_wxwork: 企业微信浏览器 | is_wx: 微信浏览器
+ * @return {string|boolean} - false:不是微信浏览器 | is_wxwork: 企业微信浏览器 | is_wx: 微信浏览器
  */
 function isWxwork() {
   var ua = navigator.userAgent.toLowerCase();
@@ -78,7 +78,7 @@ function isWxwork() {
 
 /**
  * 根据 userAgent 判断是否为安卓平台
- * @return{Boolean} true 为是安卓平台
+ * @return {boolean} - true 为是安卓平台
  */
 function isAndroid() {
   var u = window.navigator.userAgent;
@@ -87,8 +87,8 @@ function isAndroid() {
 
 /**
  * 传入个位数字，返回两位数字字符串，6 => '06'
- * @param{Number | String} n 数字
- * @return{String} ex: 06
+ * @param {number|string} - n 数字
+ * @return {string} - ex: 06
  */
 function formatNumDoubleLen(n) {
   return n >= 0 && n < 10 ? "0" + n : n;
@@ -96,9 +96,9 @@ function formatNumDoubleLen(n) {
 
 /**
  * date对象，返回 YYYY-MM-DD HH:MM 格式
- * @param{Date | Number} time 传入date对象，或者 new Date().getTime()
- * @param{String} 排版规则，默认值'{Y}-{M}-{D} {h}:{i}:{s} 星期{a}' 返回 2022-03-22 16:24:30 星期二；可以随意组合如 `{M}-{D} 星期{a}` 返回 03-22 星期二
- * @return{String} ex. 2022.03.22 14:54
+ * @param {date|number} - time 传入date对象，或者 new Date().getTime()
+ * @param {string} - template 排版规则，默认值'{Y}-{M}-{D} {h}:{i}:{s} 星期{a}' 返回 2022-03-22 16:24:30 星期二；可以随意组合如 `{M}-{D} 星期{a}` 返回 03-22 星期二
+ * @return {string} - ex. 2022.03.22 14:54
  */
 function formatDateInPattern(time, pattern) {
   if (arguments.length === 0 || !time) {
@@ -143,8 +143,8 @@ function formatDateInPattern(time, pattern) {
 /**
  *两数相乘，解决精度问题
  *
- * @param {number} arg1 数字
- * @param {number} arg2 数字
+ * @param {number} arg1 - 数字
+ * @param {number} arg2 - 数字
  * @return {number}
  */
 function accMul(arg1, arg2) {
@@ -170,8 +170,8 @@ function accMul(arg1, arg2) {
 /**
  *两数相除，解决精度问题
  *
- * @param {number} arg1 数字
- * @param {number} arg2 数字
+ * @param {number} arg1 - 数字
+ * @param {number} arg2 - 数字
  * @return {number}
  */
 function accDiv(arg1, arg2) {
@@ -201,9 +201,8 @@ function accDiv(arg1, arg2) {
 
 /**
  * 深复制对象
- *
- * @param {Object} obj 对象
- * @return {Object}
+ * @param {object} obj - 对象
+ * @return {object}
  */
 function copyObjDeep(obj) {
   var result = Array.isArray(obj) ? [] : {};
@@ -220,8 +219,8 @@ function copyObjDeep(obj) {
 }
 
 /**
- * @param  { any } data
- * @return { any }
+ * @param  {any} data - 对象
+ * @return {any}
  */
 function deepClone(data) {
   // 判断类型
@@ -253,9 +252,9 @@ function deepClone(data) {
 
 /**
  * 对象数组根据键去重
- * @param {Array[Object]} 对象数组
- * @param {String} 键名
- * @returns {Array[Object]}
+ * @param {array} array - 对象数组
+ * @param {string} key - 键名
+ * @returns {array}
  */
 function uniqObjArrayByKey(arr, key) {
   let res = arr.filter(function (item, index, self) {
@@ -266,9 +265,9 @@ function uniqObjArrayByKey(arr, key) {
 
 /**
  * 从 localStorage 取键值时，保护一下防止报错崩溃，如过没取到值设置默认值
- * @param {String} key 键名
- * @param {Any} defaultVal 默认值
- * @returns {Any} 返回已取到或默认设置的值
+ * @param {string} key - 键名
+ * @param {any} defaultVal - 默认值
+ * @returns {any} - 返回已取到或默认设置的值
  */
 function getObjFromLocalStorageByKey(key, defaultVal) {
   const str = window.localStorage.getItem(key);
@@ -287,18 +286,19 @@ function getObjFromLocalStorageByKey(key, defaultVal) {
   return val;
 }
 
-/* 
-  兼容mac的获取time
-*/
+/**
+ * 兼容mac的获取time
+ * @param  {string} timeStr - 时间戳 ex.2022-08-31
+ */
 function getTime(timeStr) {
   return new Date(Date.parse(timeStr.replace("-", "/"))).getTime();
 }
 
 /**
  * 与 findIndex相似，但是反向遍历
- * @param  { array } arr
- * @param  { function } callback
- * @param  { object } thisArg
+ * @param  {array} arr - 数组
+ * @param  {function} callback - 回调
+ * @param  {object} thisArg - this
  */
 function findLastIndex(arr, callback, thisArg) {
   for (let index = arr.length - 1; index >= 0; index--) {
